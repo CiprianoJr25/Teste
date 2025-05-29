@@ -1,32 +1,20 @@
 function adicionarTarefa() {
 
-    if (document.getElementById("tarefasInput").value.trim() === "") {
-        alert("Por favor, insira uma tarefa.");
-        return;
-    }
-    else if (document.getElementById("tarefasInput").value.length > 100) {
-        alert("A tarefa não pode ter mais de 100 caracteres.");
-        return;
-    }
-    else if (document.getElementById("tarefasInput").value.length < 5) {
-        alert("A tarefa deve ter pelo menos 5 caracteres.");
-        return;
-    }
-    else {
-        let mensagem = "Tarefa adicionada com sucesso!";
+    // Captura os dados do cliente usando o Input
+    let tarefasInput = document.getElementById("tarefasInput"); //obtem o elemento input
+    let tarefas = tarefasInput.value; //obtem o valor do input
 
-        let tarefasInput = document.getElementById("tarefasInput");
-        let tarefas = tarefasInput.value;
-        document.getElementById("mensagem").textContent = mensagem;
+    // Adiciona tarelas na lista (UL)
+    let listaTarefas = document.getElementById("listaTarefas"); //obtem o elemento input
+    let novaTarefa = document.createElement("li"); //cria o elemento li dentro da UL (lista de tarefas)
 
-        let listaTarefas = document.getElementById("listaTarefas");
-        let novaTarefa = document.createElement("li");
-        novaTarefa.textContent = tarefas;
+    novaTarefa.textContent = tarefas; // adiciona o valor obtido no input ao elemento li
+    listaTarefas.appendChild(novaTarefa); // dis que na UL lista de tarefas receberá as terafas li
 
-        listaTarefas.appendChild(novaTarefa);
+    // Mensagem final de sucesso
+    let mensagem = "Tarefa adicionada com sucesso!"; //mensagem de sucesso
+    document.getElementById("mensagem").textContent = mensagem; //envia a mensagem
 
-
-        tarefasInput.value = ""; // Limpa o campo de entrada
-
-    }
+    // Limpa o campo de entrada
+    tarefasInput.value = "";
 }
